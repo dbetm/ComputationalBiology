@@ -67,5 +67,9 @@ public class Individuo {
         Individuo in = new Individuo();
         
         System.out.println("");
+        
+        Muta.mutaBit(0.9, in);
+        
+        System.out.println("");
     }
 }
