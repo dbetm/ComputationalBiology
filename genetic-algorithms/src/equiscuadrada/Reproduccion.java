@@ -1,15 +1,17 @@
 package equiscuadrada;
 
+import equiscuadrada.Individuo;
+
 /**
  *
  * @author david
  */
 public class Reproduccion {
-    public Individuo cruzaPorMascara(int[] mascara, Individuo madre, Individuo padre) {
+    public static Individuo cruzaPorMascara(int[] mascara, Individuo madre, Individuo padre) {
         Individuo hijo1, hijo2; 
         // Representación genotipica para construir los hijos
-        int geno1[] = new int[12];
-        int geno2[] = new int[12];
+        int geno1[] = new int[mascara.length];
+        int geno2[] = new int[mascara.length];
         // Recorrer la máscara de cruza
         // Madre con 1, padre con 0
         for (int i = 0; i < mascara.length; i++) {

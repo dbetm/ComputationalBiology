@@ -1,5 +1,6 @@
 package equiscuadrada;
 
+import equiscuadrada.Individuo;
 import java.util.Random;
 
 /**
