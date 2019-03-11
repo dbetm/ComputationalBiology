@@ -6,43 +6,59 @@ import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Scanner;
+import javax.swing.DefaultListModel;
+import javax.swing.JList;
+import tools.Grafica;
 
 /**
  *
  * @author david
  */
-public class GeneticoNReinas {
+public class GeneticoNReinas implements Runnable {
     // Parametros
     private Poblacion poblacionActual;
-    private int numGeneraciones;
-    private int tamPoblacion;
-    private double probMuta;
-    private int n;
+    private Configuracion configuracion;
+    private int historia[];
+    private DefaultListModel<String> log = null;
+    private JList<String> listLog = null;
+    private boolean graficarAlTerminar;
+    private Thread hilo;
 
-    public GeneticoNReinas(int numGeneraciones, int tamPoblacion, double probMuta, int n) {
-        this.numGeneraciones = numGeneraciones;
-        this.tamPoblacion = tamPoblacion;
-        this.probMuta = probMuta;
-        this.n = n;
-        this.poblacionActual = new Poblacion(this.tamPoblacion, this.n);
+    public GeneticoNReinas(Configuracion manager) {
+        this.configuracion = manager;
+        this.poblacionActual = new Poblacion(this.configuracion.getTamPoblacion(), 
+            this.configuracion.getN());
+        this.historia = new int[this.configuracion.getNumGeneraciones()];
+        this.graficarAlTerminar = false;
     }
     
     public void evolucionar() {
-        if(buscarSolucionCalculada()) return;
-        int mascara[] = Cruza.generarMascaraAleatoria(n);
+        // Random r = new Random();
+        // if(buscarSolucionCalculada()) return;
+        int mascara[] = this.configuracion.getMascara();
         // iterar todas las generaciones
-        for(int g = 1; g < this.numGeneraciones; g++) {
+        for(int g = 1; g < this.configuracion.getNumGeneraciones(); g++) {
+
             // garantizar construir una nueva población
-            ArrayList<Individuo> ind = new ArrayList<>();
-            for(int i = 0; i < this.tamPoblacion; i++) {
+            ArrayList<Individuo> ind;
+            // calcular un N
+            int n = (int)(this.configuracion.getTamPoblacion() 
+                * this.configuracion.getpMuestra());
+            if (n > 0){
+                ind = new ArrayList<>();
+                ind.add(this.poblacionActual.getMejor());
+            }
+            else ind = new ArrayList<>();
+            
+            for(int i = n; i < this.configuracion.getTamPoblacion(); i++) {
                 // seleccionamos
-                Individuo madre = Seleccion.seleccionAleatoria(this.poblacionActual);
-                Individuo padre = Seleccion.seleccionAleatoria(this.poblacionActual);
+                Individuo madre = this.configuracion.aplicarSeleccion(this.poblacionActual, 0);
+                Individuo padre = this.configuracion.aplicarSeleccion(this.poblacionActual, 1);
                 // reproducimos
-                Individuo hijo = Cruza.cruzaXMascara(mascara, madre, padre);
+                Individuo hijo = Cruza.cruzaXMascara(this.configuracion.getMascara(), madre, padre);
                 // mutamos 
                 // evaluar la probabilidad
-                Muta.mutaGen(this.probMuta, hijo);
+                Muta.mutaGen(this.configuracion.getProbMuta(), hijo);
                 // agregamos
                 ind.add(hijo);
             }
@@ -52,12 +68,20 @@ public class GeneticoNReinas {
             // pedimos el mejor a la poblacion 
             Individuo mejor  = this.poblacionActual.getMejor();
             int f = mejor.getFitness();
-            System.out.println(f);
+            this.historia[g] = f;
+            //System.out.println("g: " + g + "\tf: " +f);
+            // Para mostrarlo en la lista
+            if(this.log != null && this.listLog != null) {
+                if(this.log.size() == 500) this.log.clear();
+                this.log.addElement("g: " + g + " f: " + f);
+                int lastIndex = this.log.getSize() - 1;
+                if(lastIndex >= 0) this.listLog.ensureIndexIsVisible(lastIndex);
+            }
             if(f == 0) {
                 String sol = Arrays.toString(mejor.getGenotipo());
                 System.out.println("g: "+g+" ->" + sol);
                 try {
-                    String path = "src/n_reinas/" + this.n + ".sol";
+                    String path = "src/n_reinas/" + this.configuracion.getN() + ".sol";
                     PrintWriter archivo = new PrintWriter(path, "UTF-8");
                     archivo.println(sol);
                     archivo.close();
@@ -69,10 +93,30 @@ public class GeneticoNReinas {
             }
         } 
     }
+
+    public void setLog(DefaultListModel<String> log) {
+        this.log = log;
+    }
     
+    public void setListLog(JList<String> listLog) {
+        this.listLog = listLog;
+    }
+    
+    public int[] getHistoria() {
+        return historia;
+    }
+    
+    public boolean isGraficarAlTerminar() {
+        return graficarAlTerminar;
+    }
+
+    public void setGraficarAlTerminar(boolean graficarAlTerminar) {
+        this.graficarAlTerminar = graficarAlTerminar;
+    }
+   
     private boolean buscarSolucionCalculada() {
         boolean ans = false;
-        String path = "src/n_reinas/" + this.n + ".sol";
+        String path = "src/n_reinas/" + this.configuracion.getN() + ".sol";
         File f = new File(path);
         if(f.exists()) {
             try {
@@ -91,8 +135,46 @@ public class GeneticoNReinas {
         return ans;
     }
     
+    public Thread getHilo() {
+        return hilo;
+    }
+
+    public void setHilo(Thread hilo) {
+        this.hilo = hilo;
+    }
+    
+    public Configuracion getConfiguracion() {
+        return configuracion;
+    }
+
+    public Poblacion getPoblacionActual() {
+        return poblacionActual;
+    }
+    
+    public void agregarIndividuo(Individuo ind) {
+        this.poblacionActual.agregarIndividuo(ind);
+        this.configuracion.setTamPoblacion(this.configuracion.getTamPoblacion() + 1);
+    }
+    
+    @Override
+    public void run() {
+        evolucionar();
+        if(this.graficarAlTerminar) {
+            Grafica g = new Grafica("Historia", "Generaciones", "Fitness");
+            g.agregarSerie("N-Reinas", this.historia);
+            g.crearGrafica();
+        }
+    }
+    
     public static void main(String args[]) {
-        GeneticoNReinas gen = new GeneticoNReinas(100, 50, 0.2, 5);
-        gen.evolucionar();
+        Seleccion.TipoSeleccion ts[] = new Seleccion.TipoSeleccion[]{
+            Seleccion.TipoSeleccion.RANDOM,
+            Seleccion.TipoSeleccion.TORNEO
+        };
+        Configuracion manager = new Configuracion(1000, 25, 0.5, 0.05, 100, ts);
+        GeneticoNReinas gen = new GeneticoNReinas(manager);
+        //gen.evolucionar();
+        Thread hilo = new Thread(gen);
+        hilo.start();    
     }
 }

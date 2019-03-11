@@ -26,7 +26,7 @@ public class Individuo {
         calcularFitness();
     }
 
-    public void calcularFitness() {
+    public void calcularFitness() {        
         this.fitness = 0;
         
         for (int i = 0; i < this.n-1; i++) {

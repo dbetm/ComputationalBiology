@@ -13,7 +13,7 @@ public class Cruza {
         Random ran = new Random();
     
         for(int x = 0; x < dim; x++) {
-            mask[x]=ran.nextInt(2);
+            mask[x] = ran.nextInt(2);
         }
         return mask;
     }

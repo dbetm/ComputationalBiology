@@ -7,6 +7,9 @@ import java.util.Random;
  * @author david
  */
 public class Seleccion {
+    
+    public enum TipoSeleccion{RANDOM, TORNEO};
+    public enum TipoMuestreo{MEJOR};
         
     // Retorna el mejor individuo de la población 
     public static Individuo seleccionTorneo(Poblacion pob){

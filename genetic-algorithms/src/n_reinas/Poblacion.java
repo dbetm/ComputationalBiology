@@ -68,9 +68,7 @@ public class Poblacion {
     public ArrayList<Individuo> getIndividuos() {
         return individuos;
     }
-    
-    
-    
+
     // Método de ordenamiento: Burbuja optimizado
     private void ordenarPoblacionActual() {
         for(int z = 1; z < this.individuos.size(); z++) {
@@ -86,7 +84,10 @@ public class Poblacion {
                     this.individuos.set(v+1,aux);
                 }
             }
-        }
-            
+        }     
+    }
+    
+    public void agregarIndividuo(Individuo ind) {
+        this.individuos.add(ind);
     }
 }
