@@ -1,12 +1,13 @@
-package equiscuadrada;
+package sat_3;
 
-import equiscuadrada.Individuo;
+import java.util.Random;
 
 /**
  *
  * @author david
  */
 public class Reproduccion {
+    
     public static Individuo cruzaPorMascara(int[] mascara, Individuo madre, Individuo padre) {
         Individuo hijo1, hijo2; 
         // Representación genotipica para construir los hijos
@@ -28,5 +29,14 @@ public class Reproduccion {
         hijo2 = new Individuo(geno2);
         // Sobrevive el que entrega más fitness
         return (hijo1.getFitness() >= hijo2.getFitness()) ? hijo1 : hijo2;
+    }
+    
+    public static int[] generarMascara(int n) {
+        int mascara[] = new int[n];
+        Random ran = new Random();
+        for (int i = 0; i < n; i++) {
+            mascara[i] = ran.nextInt(2);
+        }
+        return mascara;
     }
 }

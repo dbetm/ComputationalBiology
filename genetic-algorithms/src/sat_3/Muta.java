@@ -1,6 +1,5 @@
-package equiscuadrada;
+package sat_3;
 
-import equiscuadrada.Individuo;
 import java.util.Random;
 
 /**
