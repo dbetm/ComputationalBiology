@@ -8,7 +8,7 @@ import java.util.Arrays;
  * @author david
  */
 public class GeneticoX2 {
-    // Parametros
+    // Parámetros
     private Poblacion poblacionActual;
     private int numGeneraciones;
     private int tamPoblacion;

@@ -76,7 +76,7 @@ public class Poblacion {
         int idMejor = 0;
         
         for (int i = 1; i < this.individuos.size(); i++) {
-            if(this.individuos.get(idMejor).getFitness() < 
+            if(this.individuos.get(0).getFitness() < 
                 this.individuos.get(i).getFitness()) {
                 idMejor = i;
             }

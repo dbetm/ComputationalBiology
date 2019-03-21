@@ -19,4 +19,5 @@ public class Seleccion {
         Individuo nuevo = new Individuo(pob.getIndividuos().get(pos).getGenotipo());
         return nuevo;
     }
+    
 }
