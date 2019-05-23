@@ -41,7 +41,7 @@ public class Individuo {
     }
     
     private boolean verificarClausula(Clausula c) {
-        return (verificarNeg(c.getA())==1 || verificarNeg(c.getB())==1 ||
+        return (verificarNeg(c.getA()) == 1 || verificarNeg(c.getB()) == 1 ||
             verificarNeg(c.getC()) == 1);
     }
     

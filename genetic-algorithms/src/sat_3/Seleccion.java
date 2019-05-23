@@ -7,6 +7,7 @@ import java.util.Random;
  * @author david
  */
 public class Seleccion {
+    public enum TipoSeleccion{RANDOM, TORNEO};
     
     public static Individuo seleccionTorneo(Poblacion pob) {
         Individuo mejor = new Individuo(pob.getMejor().getGenotipo());

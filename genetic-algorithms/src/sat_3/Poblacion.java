@@ -36,6 +36,10 @@ public class Poblacion {
         else return (ArrayList<Individuo>) this.individuos.clone();
     }
     
+    public void agregarIndividuo(Individuo ind) {
+        this.individuos.add(ind);
+    }
+    
     private void burbujaOptimizado() {
         // ordenar
         Individuo temp;
