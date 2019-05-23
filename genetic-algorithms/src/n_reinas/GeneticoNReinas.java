@@ -24,8 +24,8 @@ public class GeneticoNReinas implements Runnable {
     private boolean graficarAlTerminar;
     private Thread hilo;
 
-    public GeneticoNReinas(Configuracion manager) {
-        this.configuracion = manager;
+    public GeneticoNReinas(Configuracion conf) {
+        this.configuracion = conf;
         this.poblacionActual = new Poblacion(this.configuracion.getTamPoblacion(), 
             this.configuracion.getN());
         this.historia = new int[this.configuracion.getNumGeneraciones()];
@@ -171,8 +171,8 @@ public class GeneticoNReinas implements Runnable {
             Seleccion.TipoSeleccion.RANDOM,
             Seleccion.TipoSeleccion.TORNEO
         };
-        Configuracion manager = new Configuracion(1000, 25, 0.5, 0.05, 100, ts);
-        GeneticoNReinas gen = new GeneticoNReinas(manager);
+        Configuracion conf = new Configuracion(1000, 25, 0.5, 0.05, 100, ts);
+        GeneticoNReinas gen = new GeneticoNReinas(conf);
         //gen.evolucionar();
         Thread hilo = new Thread(gen);
         hilo.start();    

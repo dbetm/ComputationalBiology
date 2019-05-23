@@ -278,7 +278,6 @@ public class ManagerGUI extends javax.swing.JFrame {
         this.txtTamPoblacion.setText("");
         this.txtProbMuta.setText("");
         this.txtPorcentajeMuestra.setText("");
-        this.txtPorcentajeMuestra.setText("");
     }//GEN-LAST:event_btnAgregarActionPerformed
 
     // Inicia el algoritmo seleccionado
@@ -326,7 +325,15 @@ public class ManagerGUI extends javax.swing.JFrame {
         int hashDestino = Integer.parseInt(strDestino);
         //System.out.println("hashOrigen: " + hashOrigen);
         //System.out.println("hashDestino: " + hashDestino);
-        this.manager.intercambiarMejorIndividuo(hashOrigen, hashDestino);
+        
+        // Se efectua el intercambio
+        //this.manager.intercambiarMejorIndividuo(hashOrigen, hashDestino);
+        Intercambio inter = new Intercambio(this, true, strOrigen, strDestino, manager);
+        inter.setVisible(true);
+        
+        this.indexSeleccionados.clear();
+        this.listAlgosGeneticos.clearSelection();
+        this.btnIntercambiar.setEnabled(false);
     }//GEN-LAST:event_btnIntercambiarActionPerformed
 
     private void listAlgosGeneticosValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_listAlgosGeneticosValueChanged
