@@ -2,15 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="14cbdb68-dcf9-4134-80b2-77cac2a6081c" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/build/classes/equiscuadrada/Muta.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/equiscuadrada/Muta.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/equiscuadrada/Poblacion.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/equiscuadrada/Poblacion.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/nbproject/private/private.xml" beforeDir="false" afterPath="$PROJECT_DIR$/nbproject/private/private.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/n_reinas/GeneticoNReinas.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/n_reinas/GeneticoNReinas.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/n_reinas/ManagerGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/n_reinas/ManagerGUI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sat_3/Individuo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sat_3/Individuo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sat_3/Poblacion.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sat_3/Poblacion.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sat_3/Seleccion.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sat_3/Seleccion.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sat_3/ThreeSAT.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sat_3/ThreeSAT.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/equis_cpp_distributed/bibliotecas.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/equis_cpp_distributed/bibliotecas.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/equis_cpp_distributed/genetico/geneticoEquis.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/equis_cpp_distributed/genetico/geneticoEquis.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/equis_cpp_distributed/genetico/main" beforeDir="false" afterPath="$PROJECT_DIR$/src/equis_cpp_distributed/genetico/main" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/equis_cpp_distributed/genetico/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/equis_cpp_distributed/genetico/main.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/equis_cpp_distributed/manager.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/equis_cpp_distributed/manager.cpp" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -23,21 +19,7 @@
     <option name="delegatedBuild" value="true" />
   </component>
   <component name="FileEditorManager">
-    <leaf>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/RPFeatureOptimizer/MinimaDistancia.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="125">
-              <caret line="105" column="9" lean-forward="true" selection-start-line="105" selection-start-column="9" selection-end-line="105" selection-end-column="9" />
-              <folding>
-                <element signature="e#3260#3261#0" expanded="true" />
-                <element signature="e#3291#3292#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
@@ -71,34 +53,14 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="PackagesPane" />
-      <pane id="ProjectPane">
-        <subPane>
-          <expand>
-            <path>
-              <item name="genetic-algorithms" type="b2602c69:ProjectViewProjectNode" />
-              <item name="genetic-algorithms" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="genetic-algorithms" type="b2602c69:ProjectViewProjectNode" />
-              <item name="genetic-algorithms" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="genetic-algorithms" type="b2602c69:ProjectViewProjectNode" />
-              <item name="genetic-algorithms" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="RPFeatureOptimizer" type="462c0819:PsiDirectoryNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
+      <pane id="ProjectPane" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="last_opened_file_path" value="$USER_HOME$/Escritorio/p2p-chat/P2P-Chat" />
     <property name="settings.editor.selected.configurable" value="reference.idesettings.emmet" />
   </component>
   <component name="RunDashboard">
@@ -127,16 +89,13 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="67" y="36" width="1293" height="743" extended-state="6" />
+    <frame x="67" y="25" width="1299" height="743" extended-state="6" />
     <layout>
-      <window_info id="Designer" />
-      <window_info id="UI Designer" />
-      <window_info id="Favorites" side_tool="true" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.17963111" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.18276137" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info anchor="bottom" id="Version Control" />
-      <window_info anchor="bottom" id="Terminal" />
-      <window_info anchor="bottom" id="Event Log" side_tool="true" />
+      <window_info id="Designer" order="2" />
+      <window_info id="UI Designer" order="3" />
+      <window_info id="Favorites" order="4" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
       <window_info anchor="bottom" id="Run" order="2" />
@@ -144,22 +103,23 @@
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="right" id="Palette" />
-      <window_info anchor="right" id="Maven" />
-      <window_info anchor="right" id="Palette&#9;" />
+      <window_info anchor="bottom" id="Version Control" order="7" />
+      <window_info anchor="bottom" id="Terminal" order="8" />
+      <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="Palette" order="3" />
+      <window_info anchor="right" id="Maven" order="4" />
+      <window_info anchor="right" id="Palette&#9;" order="5" />
     </layout>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/RPFeatureOptimizer/GeneradorDeInstancias.java">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/RPFeatureOptimizer/GeneradorDeInstancias.java" />
     <entry file="file://$PROJECT_DIR$/src/RPFeatureOptimizer/MinimaDistancia.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="125">
-          <caret line="105" column="9" lean-forward="true" selection-start-line="105" selection-start-column="9" selection-end-line="105" selection-end-column="9" />
+          <caret line="105" column="9" selection-start-line="105" selection-start-column="9" selection-end-line="105" selection-end-column="9" />
           <folding>
             <element signature="e#3260#3261#0" expanded="true" />
             <element signature="e#3291#3292#0" expanded="true" />

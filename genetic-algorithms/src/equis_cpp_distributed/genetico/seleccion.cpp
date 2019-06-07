@@ -3,7 +3,7 @@
 class Seleccion {
     public:
         static Individuo seleccionTorneo(Poblacion poblacion){
-            Individuo mejor = Individuo(12, poblacion.getMejor().getGenotipo());
+            Individuo mejor = Individuo(30, poblacion.getMejor().getGenotipo());
             return mejor;
         }
 
@@ -12,7 +12,7 @@ class Seleccion {
             mt19937_64 gen(rd());
             uniform_int_distribution<unsigned int> dis;
             int pos = dis(gen) % poblacion.getIndividuos().size();
-            Individuo mejor = Individuo(12, poblacion.getIndividuos()[pos].getGenotipo());
+            Individuo mejor = Individuo(30, poblacion.getIndividuos()[pos].getGenotipo());
             return mejor;
         }
 };

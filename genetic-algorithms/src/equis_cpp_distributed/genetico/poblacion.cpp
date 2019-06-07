@@ -8,11 +8,12 @@ class Poblacion {
         //vector<Individuo> getNMejores(int n);
         Individuo getMejor();
         vector <Individuo> getIndividuos();
+        void agregarIndiduo(Individuo);
 };
 
 Poblacion::Poblacion(int n) {
     for(int i = 0; i < n ;i++) {
-        this->individuos.push_back(Individuo(12));
+        this->individuos.push_back(Individuo(30));
     }
 }
 
@@ -34,4 +35,8 @@ Individuo Poblacion::getMejor() {
 
 vector<Individuo> Poblacion::getIndividuos() {
     return this->individuos;
+}
+
+void Poblacion::agregarIndiduo(Individuo ind) {
+    this->individuos.push_back(ind);
 }

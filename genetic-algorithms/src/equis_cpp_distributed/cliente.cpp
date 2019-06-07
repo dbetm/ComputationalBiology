@@ -2,7 +2,6 @@
 
 class Cliente {
     private:
-        string ipv4;
         int puerto;
         int fitness;
         string genotipo; // representación en cadena del genotipo
@@ -10,16 +9,14 @@ class Cliente {
         string nombre;
     public:
         Cliente(string);
-        Cliente(string, int, string);
-        Cliente(string, int, int, string, string);
+        Cliente(int, string);
+        Cliente(int, int, string, string);
         ~Cliente();
-        void setHost(string);
         void setPuerto(int);
         void setFitness(int);
         void setGenotipo(string);
         void setEstado(string);
         void setNombre(string);
-        string getHost();
         int getPuerto();
         int getFitness();
         string getGenotipo();
@@ -29,7 +26,6 @@ class Cliente {
 };
 
 Cliente::Cliente(string nombre) {
-    this->ipv4 = "";
     this->puerto = 0;
     this->fitness = 0;
     this->genotipo = "";
@@ -37,8 +33,7 @@ Cliente::Cliente(string nombre) {
     this->nombre = nombre;
 }
 
-Cliente::Cliente(string host, int puerto, string nombre) {
-    this->ipv4 = host;
+Cliente::Cliente(int puerto, string nombre) {
     this->puerto = puerto;
     this->fitness = 0;
     this->genotipo = "";
@@ -46,8 +41,7 @@ Cliente::Cliente(string host, int puerto, string nombre) {
     this->nombre = nombre;
 }
 
-Cliente::Cliente(string host, int puerto, int fitness, string genotipo, string nombre) {
-    this->ipv4 = host;
+Cliente::Cliente(int puerto, int fitness, string genotipo, string nombre) {
     this->puerto = puerto;
     this->fitness = fitness;
     this->genotipo = genotipo;
@@ -56,10 +50,6 @@ Cliente::Cliente(string host, int puerto, int fitness, string genotipo, string n
 }
 
 Cliente::~Cliente() {
-}
-
-void Cliente::setHost(string host) {
-    this->ipv4 = host;
 }
 
 void Cliente::setPuerto(int puerto) {
@@ -87,10 +77,6 @@ void Cliente::setNombre(string nombre) {
     this->nombre = nombre;
 }
 
-string Cliente::getHost() {
-    return this->ipv4;
-}
-
 int Cliente::getPuerto() {
     return this->puerto;
 }
@@ -113,7 +99,6 @@ string Cliente::getNombre() {
 
 string Cliente::toString() {
     string str = "Nombre: " + this->nombre;
-    str += "\nIPv4: " + this->ipv4;
     str += ", puerto: " + to_string(this->puerto);
     str += ", fitness: " + to_string(this->fitness);
     str += "\nGenotipo: " + this->genotipo;

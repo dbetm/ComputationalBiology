@@ -10,6 +10,12 @@
 #include <algorithm>
 #include <cmath>
 #include <random>
+#include <thread>
+#include <chrono>
+#include <functional>
+#include <map>
+#include <iterator>
+#include <climits>
 
 #define watch(x) cout << (#x) << " is " << (x) << endl;
 

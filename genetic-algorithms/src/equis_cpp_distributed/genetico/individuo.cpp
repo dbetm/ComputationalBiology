@@ -86,7 +86,7 @@ int Individuo::getN() {
 }
 /*
 int main(int argc, char const *argv[]) {
-    int n = 12;
+    int n = 30;
     Individuo ind(n);
     int *gen = ind.getGenotipo();
 
